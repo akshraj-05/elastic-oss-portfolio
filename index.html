@@ -1,382 +1,245 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101820">
-  <meta name="description" content="Akshraj Chavda — Software Engineer and Elastic open-source contributor. Explore 18 merged pull requests across Elastic projects.">
-  <title>Akshraj Chavda — Elastic OSS Contributions</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Akshraj Chavda — Software Engineer and Elastic open-source contributor. 18 merged pull requests across Elastic projects.">
+  <title>Akshraj Chavda | Elastic OSS Contributions</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #101820;
-      --panel: #17232d;
-      --panel-2: #1c2a35;
-      --line: rgba(220,235,245,.12);
-      --text: #f3f7fa;
-      --muted: #a4b3bd;
-      --yellow: #fec514;
-      --teal: #00bfb3;
-      --blue: #1ba9f5;
-      --pink: #f04e98;
-      --green: #36c9a5;
-      --max: 1120px;
+      color-scheme: light;
+      --bg:#fff; --surface:#f7f9fa; --surface2:#eef2f4; --text:#18242d;
+      --muted:#5c6b75; --line:#dfe5e8; --accent:#087e76; --accent-soft:#e5f5f2;
+      --link:#087e76; --shadow:0 8px 28px rgba(25,45,55,.06); --max:980px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 80% 0%, rgba(0,191,179,.10), transparent 34rem),
-        radial-gradient(ellipse at 0% 30%, rgba(27,169,245,.08), transparent 32rem),
-        var(--bg);
-      font-family: Manrope, Inter, system-ui, sans-serif;
-      line-height: 1.65;
+    html[data-theme="dark"] {
+      color-scheme:dark;
+      --bg:#111a21; --surface:#19252e; --surface2:#22313b; --text:#edf3f5;
+      --muted:#a7b5bd; --line:#33434d; --accent:#53c9b7; --accent-soft:#203a39;
+      --link:#65d5c4; --shadow:0 8px 28px rgba(0,0,0,.16);
     }
-    a { color: inherit; }
-    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(16,24,32,.86);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      min-height: 72px; display:flex; align-items:center; justify-content:space-between; gap:24px;
-    }
-    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:800; letter-spacing:-.04em; }
-    .brand-mark { width:34px; height:34px; display:block; }
-    .brand-name { font-size:19px; }
-    .brand-name span { color:var(--muted); font-weight:500; }
-    .nav-links { display:flex; gap:25px; align-items:center; color:var(--muted); font-size:13px; font-weight:700; }
-    .nav-links a { text-decoration:none; transition:color .2s; }
-    .nav-links a:hover { color:var(--yellow); }
-    .nav-cta { border:1px solid rgba(254,197,20,.45); color:var(--yellow)!important; padding:8px 13px; border-radius:999px; }
-    .hero { padding:90px 0 58px; position:relative; overflow:hidden; }
-    .hero-grid { display:grid; grid-template-columns:1.4fr .6fr; align-items:center; gap:48px; }
-    .eyebrow {
-      display:inline-flex; align-items:center; gap:10px; color:var(--teal);
-      font:500 11px 'DM Mono', monospace; letter-spacing:.16em; text-transform:uppercase;
-    }
-    .pulse { width:7px; height:7px; border-radius:50%; background:var(--yellow); box-shadow:0 0 14px rgba(254,197,20,.7); }
-    h1 { font-size:clamp(44px,7vw,78px); line-height:1.04; letter-spacing:-.075em; margin:22px 0 18px; }
-    .gradient-text { background:linear-gradient(100deg,#fff 12%,#d8f4f0 48%,#fec514 95%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .role { font-size:18px; color:#d8e1e7; font-weight:700; margin:0 0 14px; }
-    .intro { color:var(--muted); max-width:690px; font-size:16px; margin:0; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:9px;
-      border-radius:7px; padding:12px 17px; font-size:13px; font-weight:800;
-      text-decoration:none; transition:transform .2s, border-color .2s, background .2s;
-    }
-    .btn:hover { transform:translateY(-2px); }
-    .btn-primary { background:var(--yellow); color:#111820; }
-    .btn-ghost { border:1px solid var(--line); color:var(--text); background:rgba(255,255,255,.02); }
-    .hero-art {
-      min-height:260px; display:grid; place-items:center; position:relative;
-      border:1px solid var(--line); border-radius:18px; overflow:hidden;
-      background:linear-gradient(145deg,rgba(0,191,179,.09),rgba(27,169,245,.04) 55%,rgba(254,197,20,.07));
-    }
-    .hero-art:before,.hero-art:after { content:""; position:absolute; border:1px solid rgba(0,191,179,.22); border-radius:50%; width:230px; height:230px; }
-    .hero-art:after { width:175px; height:175px; border-color:rgba(254,197,20,.28); }
-    .art-logo { width:105px; height:105px; z-index:1; filter:drop-shadow(0 8px 28px rgba(0,191,179,.2)); }
-    .art-caption { position:absolute; bottom:17px; left:20px; color:var(--muted); font:11px 'DM Mono',monospace; letter-spacing:.1em; text-transform:uppercase; }
-    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:10px 0 62px; }
-    .metric { padding:20px 22px; border:1px solid var(--line); background:rgba(23,35,45,.78); border-radius:10px; }
-    .metric strong { display:block; font-size:30px; line-height:1.2; letter-spacing:-.06em; }
-    .metric span { color:var(--muted); font-size:12px; }
-    .metric:nth-child(1) strong { color:var(--yellow); }
-    .metric:nth-child(2) strong { color:var(--teal); }
-    .metric:nth-child(3) strong { color:var(--blue); }
-    .metric:nth-child(4) strong { color:var(--pink); }
-    section { padding:56px 0; border-top:1px solid var(--line); }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:26px; }
-    .kicker { color:var(--teal); font:500 10px 'DM Mono',monospace; letter-spacing:.16em; text-transform:uppercase; }
-    h2 { font-size:clamp(27px,4vw,39px); line-height:1.15; letter-spacing:-.055em; margin:8px 0 0; }
-    .section-copy { color:var(--muted); max-width:610px; margin:12px 0 0; font-size:14px; }
-    .small-link { color:var(--yellow); font-size:12px; font-weight:800; text-decoration:none; white-space:nowrap; }
-    .featured-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-    .feature {
-      padding:24px; border:1px solid var(--line); border-radius:11px;
-      background:linear-gradient(145deg,rgba(28,42,53,.95),rgba(23,35,45,.78));
-      min-height:220px; position:relative; overflow:hidden;
-    }
-    .feature:before { content:""; position:absolute; width:150px; height:150px; right:-85px; top:-85px; border:1px solid rgba(254,197,20,.18); border-radius:50%; }
-    .feature-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
-    .feature-num { font:12px 'DM Mono',monospace; color:var(--yellow); }
-    .pill { font:10px 'DM Mono',monospace; color:#b8c8d2; border:1px solid var(--line); padding:5px 8px; border-radius:999px; }
-    .feature h3 { font-size:19px; letter-spacing:-.035em; margin:20px 0 8px; }
-    .feature p { color:var(--muted); font-size:13px; margin:0 0 17px; }
-    .feature a { color:var(--yellow); font-size:12px; font-weight:800; text-decoration:none; }
-    .feature a:hover,.small-link:hover { text-decoration:underline; }
-    .tech-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-    .tech { border:1px solid var(--line); background:rgba(255,255,255,.025); color:#c5d1d9; padding:6px 10px; border-radius:5px; font:10px 'DM Mono',monospace; }
-    .all-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:18px; }
-    .search {
-      width:min(320px,100%); border:1px solid var(--line); background:#111d26; color:var(--text);
-      border-radius:7px; padding:11px 13px; font:12px Manrope,sans-serif; outline:none;
-    }
-    .search:focus { border-color:var(--teal); }
-    .pr-list { display:grid; gap:8px; }
-    .pr {
-      display:grid; grid-template-columns:58px minmax(0,1fr) auto; gap:15px; align-items:start;
-      padding:16px 17px; border:1px solid var(--line); border-radius:8px; background:rgba(23,35,45,.62);
-      transition:border-color .2s,background .2s;
-    }
-    .pr:hover { border-color:rgba(0,191,179,.5); background:rgba(28,42,53,.92); }
-    .pr-index { color:#718491; font:11px 'DM Mono',monospace; padding-top:3px; }
-    .pr h3 { font-size:13px; margin:0 0 5px; line-height:1.5; letter-spacing:-.01em; }
-    .pr p { color:var(--muted); font-size:11px; line-height:1.55; margin:0; max-width:780px; }
-    .pr-meta { display:flex; flex-wrap:wrap; gap:7px; margin-top:9px; }
-    .repo { color:#9db0bd; font:10px 'DM Mono',monospace; }
-    .pr-link { color:var(--yellow); font-size:11px; font-weight:800; text-decoration:none; white-space:nowrap; padding-top:2px; }
-    .pr-link:hover { text-decoration:underline; }
-    .pr[hidden] { display:none; }
-    .note { color:#8fa1ad; font-size:11px; margin:14px 0 0; }
-    .expertise { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .expertise article { border:1px solid var(--line); border-radius:9px; padding:18px; background:rgba(23,35,45,.6); }
-    .expertise h3 { font-size:13px; margin:0 0 7px; }
-    .expertise p { color:var(--muted); font-size:11px; margin:0; }
-    .contact {
-      display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-      padding:26px; border:1px solid rgba(254,197,20,.25); border-radius:12px;
-      background:linear-gradient(100deg,rgba(254,197,20,.07),rgba(0,191,179,.06));
-    }
-    .contact h2 { font-size:25px; }
-    footer { border-top:1px solid var(--line); padding:25px 0 35px; color:#82939f; font-size:10px; }
-    .footer-row { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
-    @media(max-width:800px) {
-      .hero-grid { grid-template-columns:1fr; }
-      .hero-art { min-height:190px; }
-      .metrics { grid-template-columns:repeat(2,1fr); }
-      .nav-links { gap:13px; }
-      .nav-links a:not(.nav-cta) { display:none; }
-    }
-    @media(max-width:600px) {
-      .wrap { width:min(100% - 30px,var(--max)); }
-      .hero { padding:58px 0 35px; }
-      .featured-grid,.expertise { grid-template-columns:1fr; }
-      .section-head,.all-head { align-items:flex-start; flex-direction:column; }
-      .pr { grid-template-columns:30px minmax(0,1fr); gap:10px; }
-      .pr-link { grid-column:2; }
-      .metrics { gap:8px; }
-      .metric { padding:15px; }
-      .metric strong { font-size:25px; }
-      .brand-name { font-size:16px; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 Manrope,system-ui,sans-serif;transition:background .2s,color .2s}
+    a{color:var(--link)}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{border-bottom:1px solid var(--line);background:var(--bg)}
+    .nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-weight:800;letter-spacing:-.04em;text-decoration:none;color:var(--text)}
+    .brand span{color:var(--muted);font-weight:500}
+    .nav-right{display:flex;align-items:center;gap:20px}
+    nav{display:flex;gap:18px}
+    nav a{font-size:12px;font-weight:700;text-decoration:none;color:var(--muted)}
+    nav a:hover{color:var(--accent)}
+    .theme-toggle{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:7px;padding:8px 11px;font:600 12px Manrope,sans-serif;cursor:pointer}
+    .hero{padding:65px 0 38px}
+    .eyebrow{font:500 11px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    h1{font-size:clamp(38px,6vw,58px);letter-spacing:-.065em;line-height:1.08;margin:12px 0}
+    .role{font-weight:700;margin:0 0 10px}
+    .intro{max-width:700px;color:var(--muted);margin:0}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none}
+    .primary{background:var(--accent);color:white}
+    .secondary{border:1px solid var(--line);color:var(--text);background:var(--surface)}
+    .stats{display:flex;gap:28px;flex-wrap:wrap;padding:20px 0 34px;border-bottom:1px solid var(--line)}
+    .stat strong{font-size:24px;letter-spacing:-.05em;display:block}
+    .stat span{font-size:11px;color:var(--muted)}
+    section{padding:38px 0;border-bottom:1px solid var(--line)}
+    h2{font-size:23px;letter-spacing:-.045em;margin:0 0 7px}
+    .section-intro{color:var(--muted);font-size:13px;margin:0 0 18px}
+    .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .highlight{border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--surface);box-shadow:var(--shadow)}
+    .highlight small{font:500 10px 'DM Mono',monospace;color:var(--accent);text-transform:uppercase}
+    .highlight h3{font-size:15px;line-height:1.4;margin:8px 0}
+    .highlight p{font-size:12px;color:var(--muted);margin:0 0 12px}
+    .highlight a{font-size:11px;font-weight:800;text-decoration:none}
+    .list-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:14px}
+    .search{width:min(280px,100%);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:12px Manrope,sans-serif;outline:none}
+    .search:focus{border-color:var(--accent)}
+    .pr-list{display:grid;gap:7px}
+    .pr{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:7px;background:var(--bg)}
+    .pr:hover{background:var(--surface)}
+    .num{font:11px 'DM Mono',monospace;color:var(--muted);padding-top:2px}
+    .pr h3{font-size:12px;line-height:1.5;margin:0 0 3px}
+    .pr p{font-size:11px;line-height:1.5;color:var(--muted);margin:0}
+    .repo{font:10px 'DM Mono',monospace;color:var(--muted);margin-top:5px}
+    .pr>a{font-size:11px;font-weight:800;text-decoration:none;white-space:nowrap}
+    .pr[hidden]{display:none}
+    .note{font-size:10px;color:var(--muted);margin:10px 0 0}
+    .contact{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .contact p{font-size:12px;color:var(--muted);margin:0}
+    footer{padding:20px 0 28px;color:var(--muted);font-size:10px}
+    @media(max-width:680px){
+      .wrap{width:calc(100% - 30px)}.nav{height:auto;min-height:62px}
+      nav{display:none}.hero{padding:48px 0 25px}
+      .highlights{grid-template-columns:1fr}
+      .list-head{align-items:flex-start;flex-direction:column}
+      .search{width:100%}.pr{grid-template-columns:25px minmax(0,1fr);gap:8px}
+      .pr>a{grid-column:2}.stats{gap:18px}
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Akshraj Chavda home">
-        <svg class="brand-mark" viewBox="0 0 24 24" role="img" aria-label="Elastic mark" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="elasticGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FEC514"/><stop offset=".48" stop-color="#00BFB3"/><stop offset="1" stop-color="#1BA9F5"/></linearGradient></defs>
-          <path fill="url(#elasticGradient)" d="M20.345 16.33l-3.959-.926-1.05-2.01 5.177-4.535a3.962 3.962 0 012.559 3.702 4.006 4.006 0 01-2.727 3.77m-2.976 4.68c-.616 0-1.22-.207-1.714-.587l.782-4.077 3.596.841c.115.31.172.642.172.987a2.839 2.839 0 01-2.836 2.836m-2.637-.586a5.92 5.92 0 01-4.908 2.6A5.947 5.947 0 014 15.905l5.167-4.67 5.272 2.403 1.167 2.23zM.928 11.443a4.007 4.007 0 012.726-3.77l3.95.933.927 1.98-5.05 4.565a3.97 3.97 0 01-2.553-3.708m5.703-8.45a2.841 2.841 0 011.723.58l-.789 4.092-3.598-.85a2.842 2.842 0 01-.172-.986A2.84 2.84 0 016.63 2.992m2.66.59A5.92 5.92 0 0120.1 6.93c0 .4-.038.781-.114 1.164l-5.299 4.643-5.251-2.394-1.026-2.19zM24 12.571a4.723 4.723 0 00-3.124-4.454 6.695 6.695 0 00.126-1.29A6.789 6.789 0 0014.22.047 6.769 6.769 0 008.727 2.86a3.586 3.586 0 00-2.204-.754A3.604 3.604 0 003.15 6.959 4.786 4.786 0 000 11.431 4.727 4.727 0 003.139 15.9a6.876 6.876 0 00-.124 1.289 6.773 6.773 0 006.765 6.765c2.19 0 4.22-1.052 5.49-2.824a3.568 3.568 0 002.207.769 3.603 3.603 0 003.374-4.854A4.785 4.785 0 0124 12.572"/>
-        </svg>
-        <span class="brand-name">AKSHRAJ <span>CHAVDA</span></span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#highlights">Highlights</a>
-        <a href="#contributions">All PRs</a>
-        <a href="#expertise">Engineering</a>
-        <a class="nav-cta" href="https://github.com/akshraj-crest" target="_blank" rel="noopener">GitHub ↗</a>
-      </nav>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">AKSHRAJ <span>CHAVDA</span></a>
+    <div class="nav-right">
+      <nav aria-label="Main navigation"><a href="#highlights">Highlights</a><a href="#contributions">Contributions</a><a href="#contact">Contact</a></nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">☾ Dark mode</button>
     </div>
-  </header>
+  </div>
+</header>
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="eyebrow">Software Engineer · Elastic OSS Contributor</div>
+    <h1>Akshraj Chavda</h1>
+    <p class="role">Building integrations, security data pipelines and developer workflows.</p>
+    <p class="intro">I contribute to the Elastic ecosystem, focusing on security integrations, threat intelligence, data ingestion and platform improvements. Here are selected projects and my merged pull requests.</p>
+    <div class="actions">
+      <a class="btn primary" href="#contributions">View contributions ↓</a>
+      <a class="btn secondary" href="https://github.com/akshraj-crest" target="_blank" rel="noopener">GitHub profile ↗</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/akshraj-chavda/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
 
-  <main id="top">
-    <div class="wrap">
-      <section class="hero" style="border:0">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow"><span class="pulse"></span> Open source · Elastic ecosystem · 2025—2026</div>
-            <h1><span class="gradient-text">Engineering</span><br>for better visibility.</h1>
-            <p class="role">Akshraj Chavda <span style="color:var(--teal)">/</span> Software Engineer</p>
-            <p class="intro">I contribute to the Elastic ecosystem across security integrations, threat intelligence, data ingestion and platform workflows. This page brings together the pull requests I’ve had merged and the engineering work behind them.</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#contributions">Explore 18 merged PRs <span aria-hidden="true">↘</span></a>
-              <a class="btn btn-ghost" href="https://www.linkedin.com/in/akshraj-chavda/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
-            </div>
-          </div>
-          <div class="hero-art" aria-label="Elastic-inspired abstract mark">
-            <svg class="art-logo" viewBox="0 0 24 24" role="img" aria-label="Elastic mark" xmlns="http://www.w3.org/2000/svg">
-              <defs><linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FEC514"/><stop offset=".48" stop-color="#00BFB3"/><stop offset="1" stop-color="#1BA9F5"/></linearGradient></defs>
-              <path fill="url(#heroGradient)" d="M20.345 16.33l-3.959-.926-1.05-2.01 5.177-4.535a3.962 3.962 0 012.559 3.702 4.006 4.006 0 01-2.727 3.77m-2.976 4.68c-.616 0-1.22-.207-1.714-.587l.782-4.077 3.596.841c.115.31.172.642.172.987a2.839 2.839 0 01-2.836 2.836m-2.637-.586a5.92 5.92 0 01-4.908 2.6A5.947 5.947 0 014 15.905l5.167-4.67 5.272 2.403 1.167 2.23zM.928 11.443a4.007 4.007 0 012.726-3.77l3.95.933.927 1.98-5.05 4.565a3.97 3.97 0 01-2.553-3.708m5.703-8.45a2.841 2.841 0 011.723.58l-.789 4.092-3.598-.85a2.842 2.842 0 01-.172-.986A2.84 2.84 0 016.63 2.992m2.66.59A5.92 5.92 0 0120.1 6.93c0 .4-.038.781-.114 1.164l-5.299 4.643-5.251-2.394-1.026-2.19zM24 12.571a4.723 4.723 0 00-3.124-4.454 6.695 6.695 0 00.126-1.29A6.789 6.789 0 0014.22.047 6.769 6.769 0 008.727 2.86a3.586 3.586 0 00-2.204-.754A3.604 3.604 0 003.15 6.959 4.786 4.786 0 000 11.431 4.727 4.727 0 003.139 15.9a6.876 6.876 0 00-.124 1.289 6.773 6.773 0 006.765 6.765c2.19 0 4.22-1.052 5.49-2.824a3.568 3.568 0 002.207.769 3.603 3.603 0 003.374-4.854A4.785 4.785 0 0124 12.572"/>
-            </svg>
-            <div class="art-caption">Search · Observability · Security</div>
-          </div>
-        </div>
-      </section>
+  <div class="stats" aria-label="Contribution summary">
+    <div class="stat"><strong>18</strong><span>Merged pull requests</span></div>
+    <div class="stat"><strong>4</strong><span>Elastic repositories</span></div>
+    <div class="stat"><strong>6</strong><span>Integration initiatives</span></div>
+  </div>
 
-      <div class="metrics" aria-label="Contribution metrics">
-        <div class="metric"><strong>18</strong><span>Merged pull requests</span></div>
-        <div class="metric"><strong>4</strong><span>Elastic repositories</span></div>
-        <div class="metric"><strong>6</strong><span>Integration initiatives</span></div>
-        <div class="metric"><strong>2025–26</strong><span>Contribution period</span></div>
+  <section id="highlights">
+    <h2>Selected contributions</h2>
+    <p class="section-intro">A few substantial examples from the merged work.</p>
+    <div class="highlights">
+      <article class="highlight">
+        <small>GTI · Kibana & Workflows</small>
+        <h3>Google Threat Intelligence</h3>
+        <p>Connector support in Kibana and 12 workflows for threat enrichment, IOC relationships, URL scanning and alert write-back.</p>
+        <a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">Kibana PR #285533 ↗</a><br>
+        <a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">Workflows PR #60 ↗</a>
+      </article>
+      <article class="highlight">
+        <small>Elastic Integrations</small>
+        <h3>BeyondTrust EPM</h3>
+        <p>Audit and event data streams, ECS mapping, dashboards, and collection through the Management API or AWS S3/SQS.</p>
+        <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">Initial release PR #20010 ↗</a>
+      </article>
+      <article class="highlight">
+        <small>Elastic Integrations</small>
+        <h3>Flashpoint & QRadar</h3>
+        <p>Threat-intelligence data streams for Flashpoint and an IBM QRadar offense integration with ECS mapping and dashboards.</p>
+        <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">Flashpoint PR #16714 ↗</a><br>
+        <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">QRadar PR #15302 ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="contributions">
+    <div class="list-head">
+      <div><h2>All merged pull requests</h2><p class="section-intro" style="margin:4px 0 0">18 merged PRs · Direct links to GitHub.</p></div>
+      <input class="search" id="prSearch" type="search" placeholder="Search contributions…" aria-label="Search contributions">
+    </div>
+    <div class="pr-list" id="prList">
+      <article class="pr" data-search="google threat intelligence workflows gti enrichment alerts pagination url scan">
+        <span class="num">01</span><div><h3>Add Google Threat Intelligence workflows</h3><p>12 workflows for IP, domain, URL and file enrichment, alert write-back and relationship retrieval.</p><div class="repo">elastic/workflows</div></div><a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">PR #60 ↗</a>
+      </article>
+      <article class="pr" data-search="google threat intelligence connector kibana api key agent builder collections ioc">
+        <span class="num">02</span><div><h3>[Connector][GTI] Add Google Threat Intelligence connector</h3><p>Kibana connector with API-key authentication and threat collection, IOC, report and URL scan actions.</p><div class="repo">elastic/kibana</div></div><a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">PR #285533 ↗</a>
+      </article>
+      <article class="pr" data-search="flashpoint headers http requests integration platform version agent version">
+        <span class="num">03</span><div><h3>[ti_flashpoint] Set X-FP-* headers for HTTP requests</h3><p>Adds vendor-requested identification headers using package and Agent metadata with fallbacks.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener">PR #20566 ↗</a>
+      </article>
+      <article class="pr" data-search="google threat intelligence vulnerability data stream cvss epss kev">
+        <span class="num">04</span><div><h3>[ti_google_threat_intelligence] Add Vulnerability Data Stream</h3><p>Adds vulnerability data with CVSS, EPSS and exploitation context, plus related package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20465" target="_blank" rel="noopener">PR #20465 ↗</a>
+      </article>
+      <article class="pr" data-search="beyondtrust epm initial release audit event data stream aws s3 sqs management api ecs dashboards">
+        <span class="num">05</span><div><h3>[BeyondTrust EPM] Initial release</h3><p>Audit and event collection, Management API and AWS S3/SQS paths, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">PR #20010 ↗</a>
+      </article>
+      <article class="pr" data-search="beyondtrust audit config preserve duplicate custom fields access point arn aws s3 tests">
+        <span class="num">06</span><div><h3>[BeyondTrust EPM][Audit] Refine configuration and test layout</h3><p>Removes a duplicate-fields option, exposes S3 Access Point ARN and relocates test files.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">PR #19465 ↗</a>
+      </article>
+      <article class="pr" data-search="beyondtrust epm event data stream dashboards visualizations product schema">
+        <span class="num">07</span><div><h3>[BeyondTrust EPM][Event] Add Event data stream</h3><p>Adds Event collection, ECS field mapping, sample data and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18707" target="_blank" rel="noopener">PR #18707 ↗</a>
+      </article>
+      <article class="pr" data-search="beyondtrust epm audit data stream dashboards visualizations ecs">
+        <span class="num">08</span><div><h3>[BeyondTrust EPM][Audit] Add Audit data stream</h3><p>Adds audit collection, ECS mapping, sanitized samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18635" target="_blank" rel="noopener">PR #18635 ↗</a>
+      </article>
+      <article class="pr" data-search="forescout host data stream eyeextend connect host event">
+        <span class="num">09</span><div><h3>[Forescout][Host] Add Forescout Host data stream</h3><p>Adds host data ingestion through the eyeExtend Connect app alongside event collection.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18097" target="_blank" rel="noopener">PR #18097 ↗</a>
+      </article>
+      <article class="pr" data-search="flashpoint vulnerability data stream dashboard ecs">
+        <span class="num">10</span><div><h3>[ti_flashpoint][vulnerability] Add Vulnerability data stream</h3><p>Adds Flashpoint vulnerability collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16741" target="_blank" rel="noopener">PR #16741 ↗</a>
+      </article>
+      <article class="pr" data-search="flashpoint indicator data stream dashboard ecs">
+        <span class="num">11</span><div><h3>[ti_flashpoint][indicator] Add Indicator data stream</h3><p>Adds Flashpoint indicator collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16726" target="_blank" rel="noopener">PR #16726 ↗</a>
+      </article>
+      <article class="pr" data-search="flashpoint alert data stream dashboard">
+        <span class="num">12</span><div><h3>[ti_flashpoint][alert] Add Alert data stream</h3><p>Adds the initial Flashpoint alert data stream and package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">PR #16714 ↗</a>
+      </article>
+      <article class="pr" data-search="ironscales integration incident data stream dashboards visualizations api ecs">
+        <span class="num">13</span><div><h3>[IRONSCALES] Initial release of IRONSCALES integration</h3><p>Adds incident collection, ECS-aligned fields, samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">PR #15982 ↗</a>
+      </article>
+      <article class="pr" data-search="ibm qradar initial release offense data stream dashboards ecs siem">
+        <span class="num">14</span><div><h3>[ibm_qradar] Initial release of IBM QRadar</h3><p>Adds offense collection, rule-context enrichment, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">PR #15302 ↗</a>
+      </article>
+      <article class="pr" data-search="elasticsearch ironscales ilm policy delete kibana system permissions authorization">
+        <span class="num">15</span><div><h3>[IRONSCALES] Fix ILM policy delete-step permissions</h3><p>Adds required kibana_system privileges for IRONSCALES incident indices.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener">PR #138094 ↗</a>
+      </article>
+      <article class="pr" data-search="elasticsearch ironscales backport 8.19 ilm authorization">
+        <span class="num">16</span><div><h3>[8.19] Backport IRONSCALES ILM permission fix</h3><p>Backports the authorization fix to Elasticsearch 8.19.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener">PR #138487 ↗</a>
+      </article>
+      <article class="pr" data-search="elasticsearch ironscales backport 9.1 ilm authorization">
+        <span class="num">17</span><div><h3>[9.1] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.1.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener">PR #138486 ↗</a>
+      </article>
+      <article class="pr" data-search="elasticsearch ironscales backport 9.2 ilm authorization">
+        <span class="num">18</span><div><h3>[9.2] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.2.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener">PR #138485 ↗</a>
+      </article>
+    </div>
+    <p class="note">The three IRONSCALES backports are separate merged PRs for maintenance branches, not separate feature implementations.</p>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div><h2 style="margin:0">Connect</h2><p>GitHub and LinkedIn profiles.</p></div>
+      <div class="actions" style="margin:0">
+        <a class="btn primary" href="https://github.com/akshraj-crest" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/akshraj-chavda/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-
-      <section id="highlights">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Selected work</div>
-            <h2>Highlights from the ecosystem.</h2>
-            <p class="section-copy">A closer look at several larger contributions. Summaries are based on the merged pull-request descriptions and code changes.</p>
-          </div>
-          <a class="small-link" href="https://github.com/search?q=org%3Aelastic+author%3Aakshraj-crest+is%3Apr+is%3Amerged&type=pullrequests" target="_blank" rel="noopener">View GitHub search ↗</a>
-        </div>
-        <div class="featured-grid">
-          <article class="feature">
-            <div class="feature-top"><span class="feature-num">01 / GTI</span><span class="pill">Kibana · Workflows</span></div>
-            <h3>Google Threat Intelligence, end to end</h3>
-            <p>Contributed to the GTI connector in Kibana and a set of enrichment workflows. The work spans API-key authentication, threat and IOC operations, alert enrichment, indexing, note updates, pagination and asynchronous URL scanning.</p>
-            <a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">Connector PR #285533 ↗</a>
-            <span style="color:var(--muted)"> · </span><a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">Workflows PR #60 ↗</a>
-            <div class="tech-row"><span class="tech">Kibana</span><span class="tech">Threat Intelligence</span><span class="tech">Agent Builder</span><span class="tech">Workflows</span></div>
-          </article>
-          <article class="feature">
-            <div class="feature-top"><span class="feature-num">02 / EPM</span><span class="pill">Elastic Integrations</span></div>
-            <h3>BeyondTrust EPM integration</h3>
-            <p>Helped build the integration across audit and event data streams, ECS field mapping, dashboards and visualizations. The integration supports collection through the Management API and AWS S3/SQS; follow-up work refined configuration and test layout.</p>
-            <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">Initial release PR #20010 ↗</a>
-            <div class="tech-row"><span class="tech">ECS</span><span class="tech">AWS S3/SQS</span><span class="tech">Data streams</span><span class="tech">Kibana</span></div>
-          </article>
-          <article class="feature">
-            <div class="feature-top"><span class="feature-num">03 / FLASHPOINT</span><span class="pill">Threat Intelligence</span></div>
-            <h3>Flashpoint data stream expansion</h3>
-            <p>Expanded Flashpoint coverage across alert, indicator and vulnerability data streams, and added vendor-requested integration identification headers using package and Agent metadata with safe fallbacks.</p>
-            <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">Alert PR #16714 ↗</a>
-            <span style="color:var(--muted)"> · </span><a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener">Headers PR #20566 ↗</a>
-            <div class="tech-row"><span class="tech">CEL</span><span class="tech">HTTP APIs</span><span class="tech">ECS</span><span class="tech">Data streams</span></div>
-          </article>
-          <article class="feature">
-            <div class="feature-top"><span class="feature-num">04 / QRADAR</span><span class="pill">Security Integration</span></div>
-            <h3>IBM QRadar offense integration</h3>
-            <p>Contributed to an integration that collects QRadar offense records, enriches them with rule context, maps fields to ECS where possible, and provides Kibana dashboards and visualizations.</p>
-            <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">Integration PR #15302 ↗</a>
-            <div class="tech-row"><span class="tech">SIEM</span><span class="tech">REST API</span><span class="tech">ECS mapping</span><span class="tech">Dashboards</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contributions">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Contribution record</div>
-            <h2>All 18 merged pull requests.</h2>
-            <p class="section-copy">Browse the full list by project. Each entry links directly to its merged PR on GitHub.</p>
-          </div>
-        </div>
-        <div class="all-head">
-          <span class="pill">18 verified merged PRs · 4 repositories</span>
-          <input class="search" id="prSearch" type="search" placeholder="Filter by title, repository or topic…" aria-label="Filter pull requests">
-        </div>
-        <div class="pr-list" id="prList">
-          <article class="pr" data-search="google threat intelligence workflows elastic workflows gti enrichment alerts pagination url scan">
-            <span class="pr-index">01</span><div><h3>Add Google Threat Intelligence workflows</h3><p>Introduces 12 GTI enrichment workflows for IPs, domains, URLs and file hashes, including alert write-back, dedicated indices, relationship pagination and URL-scan polling.</p><div class="pr-meta"><span class="repo">elastic/workflows</span><span class="pill">Workflows</span><span class="pill">GTI</span></div></div><a class="pr-link" href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">PR #60 ↗</a>
-          </article>
-          <article class="pr" data-search="google threat intelligence connector kibana api key agent builder collections ioc">
-            <span class="pr-index">02</span><div><h3>[Connector][GTI] Add Google Threat Intelligence connector</h3><p>Adds GTI connectivity to Kibana with API-key authentication, configurable API base URL and operations for threat collections, IOC streams, indicator reports, relationships and URL scans.</p><div class="pr-meta"><span class="repo">elastic/kibana</span><span class="pill">Kibana</span><span class="pill">Connector</span></div></div><a class="pr-link" href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">PR #285533 ↗</a>
-          </article>
-          <article class="pr" data-search="flashpoint headers http requests integration platform version agent version">
-            <span class="pr-index">03</span><div><h3>[ti_flashpoint] Set X-FP-* headers for HTTP requests</h3><p>Adds Flashpoint-request identification headers for Elastic, package version and Agent version, with metadata-based values and an unknown fallback.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">CEL</span><span class="pill">HTTP</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener">PR #20566 ↗</a>
-          </article>
-          <article class="pr" data-search="google threat intelligence vulnerability data stream cvss epss kev transforms detection rules dashboards">
-            <span class="pr-index">04</span><div><h3>[ti_google_threat_intelligence] Add Vulnerability Data Stream</h3><p>Extends GTI integration with vulnerability data, including assessment context such as CVSS, EPSS, exploitation status and KEV information, plus transforms, detection rules and dashboards.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Vulnerability</span><span class="pill">GTI</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/20465" target="_blank" rel="noopener">PR #20465 ↗</a>
-          </article>
-          <article class="pr" data-search="beyondtrust epm initial release audit event data stream aws s3 sqs management api ecs dashboards">
-            <span class="pr-index">05</span><div><h3>[BeyondTrust EPM] Initial release</h3><p>Introduces the BeyondTrust EPM integration with audit and event collection, Management API and AWS S3/SQS collection paths, ECS mapping, dashboards and visualizations.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Integration</span><span class="pill">ECS</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">PR #20010 ↗</a>
-          </article>
-          <article class="pr" data-search="beyondtrust audit config preserve duplicate custom fields access point arn aws s3 tests">
-            <span class="pr-index">06</span><div><h3>[BeyondTrust EPM][Audit] Refine configuration and test layout</h3><p>Removes the duplicate-custom-fields toggle, exposes the S3 Access Point ARN configuration and relocates deployment test files beside the audit data stream.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Configuration</span><span class="pill">Testing</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">PR #19465 ↗</a>
-          </article>
-          <article class="pr" data-search="beyondtrust epm event data stream dashboards visualizations product schema">
-            <span class="pr-index">07</span><div><h3>[BeyondTrust EPM][Event] Add Event data stream</h3><p>Adds the EPM Event data stream, product-schema-based sample data, ECS field mapping, dashboards and visualizations.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Data stream</span><span class="pill">ECS</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/18707" target="_blank" rel="noopener">PR #18707 ↗</a>
-          </article>
-          <article class="pr" data-search="beyondtrust epm audit data stream dashboards visualizations ecs">
-            <span class="pr-index">08</span><div><h3>[BeyondTrust EPM][Audit] Add Audit data stream</h3><p>Adds audit-log collection with ECS field mapping, sanitized sample events, dashboards and visualizations.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Data stream</span><span class="pill">ECS</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/18635" target="_blank" rel="noopener">PR #18635 ↗</a>
-          </article>
-          <article class="pr" data-search="forescout host data stream eyeextend connect host event integration">
-            <span class="pr-index">09</span><div><h3>[Forescout][Host] Add Forescout Host data stream</h3><p>Expands the Forescout integration to ingest host data from the eyeExtend Connect app alongside event collection, with compatibility and package updates.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Forescout</span><span class="pill">Host data</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/18097" target="_blank" rel="noopener">PR #18097 ↗</a>
-          </article>
-          <article class="pr" data-search="flashpoint vulnerability data stream dashboard ecs">
-            <span class="pr-index">10</span><div><h3>[ti_flashpoint][vulnerability] Add Vulnerability data stream</h3><p>Adds Flashpoint vulnerability collection and associated dashboard support, with fields mapped to ECS where possible.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Flashpoint</span><span class="pill">Vulnerability</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/16741" target="_blank" rel="noopener">PR #16741 ↗</a>
-          </article>
-          <article class="pr" data-search="flashpoint indicator data stream dashboard ecs">
-            <span class="pr-index">11</span><div><h3>[ti_flashpoint][indicator] Add Indicator data stream</h3><p>Adds Flashpoint indicator collection from the Technical Intelligence API, with ECS mapping and dashboard support.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Flashpoint</span><span class="pill">Indicators</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/16726" target="_blank" rel="noopener">PR #16726 ↗</a>
-          </article>
-          <article class="pr" data-search="flashpoint alert data stream dashboard">
-            <span class="pr-index">12</span><div><h3>[ti_flashpoint][alert] Add Alert data stream</h3><p>Adds the initial Flashpoint alert data stream and package assets, including dashboard support.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">Flashpoint</span><span class="pill">Alerts</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">PR #16714 ↗</a>
-          </article>
-          <article class="pr" data-search="ironscales elastic integration incident data stream dashboards visualizations api ecs">
-            <span class="pr-index">13</span><div><h3>[IRONSCALES] Initial release of IRONSCALES integration</h3><p>Introduces incident collection, ECS-aligned fields, sanitized samples, dashboards and visualizations for email-security incident data.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">IRONSCALES</span><span class="pill">Security</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">PR #15982 ↗</a>
-          </article>
-          <article class="pr" data-search="ibm qradar initial release offense data stream dashboards ecs siem">
-            <span class="pr-index">14</span><div><h3>[ibm_qradar] Initial release of IBM QRadar</h3><p>Introduces QRadar offense collection, rule-context enrichment, ECS mapping, dashboards and integration tests.</p><div class="pr-meta"><span class="repo">elastic/integrations</span><span class="pill">IBM QRadar</span><span class="pill">SIEM</span></div></div><a class="pr-link" href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">PR #15302 ↗</a>
-          </article>
-          <article class="pr" data-search="elasticsearch ironscales ilm policy delete kibana system permissions authorization">
-            <span class="pr-index">15</span><div><h3>[IRONSCALES] Fix ILM policy delete-step permissions</h3><p>Extends the kibana_system role with the required privileges for IRONSCALES incident indices so ILM can manage and delete them as intended.</p><div class="pr-meta"><span class="repo">elastic/elasticsearch</span><span class="pill">Authorization</span><span class="pill">ILM</span></div></div><a class="pr-link" href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener">PR #138094 ↗</a>
-          </article>
-          <article class="pr" data-search="elasticsearch ironscales backport 8.19 ilm authorization">
-            <span class="pr-index">16</span><div><h3>[8.19] Backport IRONSCALES ILM permission fix</h3><p>Backports the merged IRONSCALES authorization fix to the Elasticsearch 8.19 branch.</p><div class="pr-meta"><span class="repo">elastic/elasticsearch</span><span class="pill">Backport</span><span class="pill">8.19</span></div></div><a class="pr-link" href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener">PR #138487 ↗</a>
-          </article>
-          <article class="pr" data-search="elasticsearch ironscales backport 9.1 ilm authorization">
-            <span class="pr-index">17</span><div><h3>[9.1] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to the Elasticsearch 9.1 branch.</p><div class="pr-meta"><span class="repo">elastic/elasticsearch</span><span class="pill">Backport</span><span class="pill">9.1</span></div></div><a class="pr-link" href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener">PR #138486 ↗</a>
-          </article>
-          <article class="pr" data-search="elasticsearch ironscales backport 9.2 ilm authorization">
-            <span class="pr-index">18</span><div><h3>[9.2] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to the Elasticsearch 9.2 branch.</p><div class="pr-meta"><span class="repo">elastic/elasticsearch</span><span class="pill">Backport</span><span class="pill">9.2</span></div></div><a class="pr-link" href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener">PR #138485 ↗</a>
-          </article>
-        </div>
-        <p class="note">Note: the three Elasticsearch backport PRs are separate merged pull requests for maintenance branches, all carrying the original fix from PR #138094.</p>
-      </section>
-
-      <section id="expertise">
-        <div class="section-head">
-          <div><div class="kicker">Engineering themes</div><h2>What this work demonstrates.</h2></div>
-        </div>
-        <div class="expertise">
-          <article><h3>Security data integrations</h3><p>Building data streams that bring third-party security telemetry into Elastic for investigation and analysis.</p></article>
-          <article><h3>Data modeling & ECS</h3><p>Mapping vendor payloads to Elastic Common Schema and shaping data for consistent downstream use.</p></article>
-          <article><h3>Ingestion & APIs</h3><p>Working with REST APIs, CEL-based collection, metadata, pagination and cloud storage collection paths.</p></article>
-          <article><h3>Detection & visualization</h3><p>Supporting dashboards, visualizations, detection rules and threat-intelligence enrichment use cases.</p></article>
-          <article><h3>Platform engineering</h3><p>Contributing to Kibana connectors, Elasticsearch authorization and ILM-related behavior.</p></article>
-          <article><h3>Automation & quality</h3><p>Developing workflow automation and contributing package tests, fixtures and integration documentation.</p></article>
-        </div>
-        <div class="tech-row" style="margin-top:20px">
-          <span class="tech">Elasticsearch</span><span class="tech">Kibana</span><span class="tech">Elastic Security</span><span class="tech">ECS</span><span class="tech">CEL</span><span class="tech">REST APIs</span><span class="tech">AWS S3/SQS</span><span class="tech">Workflows</span><span class="tech">Agent Builder</span><span class="tech">Integration testing</span>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="contact">
-          <div><div class="kicker">Let's connect</div><h2>Interested in building useful things.</h2><p class="section-copy">Explore the code, review the merged contributions or connect with me.</p></div>
-          <div class="hero-actions" style="margin:0">
-            <a class="btn btn-primary" href="https://github.com/akshraj-crest" target="_blank" rel="noopener">GitHub profile ↗</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/akshraj-chavda/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          </div>
-        </div>
-      </section>
     </div>
-  </main>
-
-  <footer>
-    <div class="wrap footer-row">
-      <span>© 2026 Akshraj Chavda · Independent open-source contributor portfolio.</span>
-      <span>Elastic and related marks belong to their respective owners. This site is not an official Elastic website.</span>
-    </div>
-  </footer>
-  <script>
-    const search = document.getElementById('prSearch');
-    const rows = [...document.querySelectorAll('#prList .pr')];
-    search.addEventListener('input', () => {
-      const q = search.value.trim().toLowerCase();
-      rows.forEach(row => { row.hidden = !row.dataset.search.includes(q); });
-    });
-  </script>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Akshraj Chavda · Independent open-source contributor. Not an official Elastic website.</div></footer>
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  function setTheme(theme) {
+    root.dataset.theme = theme;
+    const dark = theme === 'dark';
+    toggle.textContent = dark ? '☀ Light mode' : '☾ Dark mode';
+    toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    metaTheme.content = dark ? '#111a21' : '#ffffff';
+  }
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('portfolio-theme'); } catch (_) {}
+  setTheme(savedTheme === 'dark' ? 'dark' : 'light');
+  toggle.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    try { localStorage.setItem('portfolio-theme', next); } catch (_) {}
+  });
+  const search = document.getElementById('prSearch');
+  const rows = [...document.querySelectorAll('#prList .pr')];
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    rows.forEach(row => { row.hidden = !row.dataset.search.includes(q); });
+  });
+</script>
 </body>
 </html>
