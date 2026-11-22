@@ -66,10 +66,16 @@
     .highlight h3{font-size:15px;line-height:1.4;margin:8px 0}
     .highlight p{font-size:12px;color:var(--muted);margin:0 0 12px}
     .highlight a{font-size:11px;font-weight:800;text-decoration:none}
-    .list-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:14px}
-    .search{width:min(280px,100%);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:12px Manrope,sans-serif;outline:none}
-    .search:focus{border-color:var(--accent)}
-    .pr-list{display:grid;gap:7px}
+.repo-group{margin-top:20px}
+    .repo-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 2px 9px;border-bottom:1px solid var(--line);font-size:13px;margin:0 0 9px}
+    .repo-heading a{color:var(--accent);text-decoration:none;font-family:'DM Mono',monospace;font-size:12px}
+    .repo-heading a:hover{color:#e84b91;text-decoration:underline}
+    .repo-heading span{font:10px 'DM Mono',monospace;color:var(--muted)}
+    .repo-group .pr-list{display:grid;gap:7px}
+    .repo-group .pr{transition:transform .18s ease,border-color .18s ease,background .18s ease}
+    .repo-group .pr:hover{transform:translateX(3px);border-color:var(--accent);background:var(--surface)}
+    .note{display:none}
+        .pr-list{display:grid;gap:7px}
     .pr{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:7px;background:var(--bg)}
     .pr{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
     .pr:hover{background:var(--surface);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -99,7 +105,6 @@
       .wrap{width:calc(100% - 30px)}.nav{height:auto;min-height:62px}
       nav{display:none}.hero{padding:48px 0 25px}
       .highlights{grid-template-columns:1fr}
-      .list-head{align-items:flex-start;flex-direction:column}
       .search{width:100%}.pr{grid-template-columns:25px minmax(0,1fr);gap:8px}
       .pr>a{grid-column:2}.stats{gap:18px}
     }
@@ -134,114 +139,128 @@
   </div>
 
   <section id="highlights">
-    <h2>Selected contributions</h2>
-    <p class="section-intro">Primary-authored integrations are identified separately from other substantial contributions.</p>
+    <h2>Notable Contributions</h2>
+    <p class="section-intro">Selected work across Elastic integrations, Kibana, Workflows and Elasticsearch.</p>
     <div class="highlights">
       <article class="highlight" style="border-top:3px solid var(--teal)">
         <small>Primary author · New integration</small>
         <h3>BeyondTrust EPM</h3>
-        <p>Authored the initial integration release, including Audit and Event data streams, ECS field mapping, dashboards and visualizations. Follow-up PRs refined configuration and test layout.</p>
-        <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">Initial release #20010 ↗</a>
-        <span aria-hidden="true"> · </span><a href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">Follow-up #19465 ↗</a>
+        <p>Authored the initial integration release with Audit and Event data streams, ECS field mapping, dashboards and visualizations.</p>
+        <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener noreferrer">Initial release #20010 ↗</a>
       </article>
       <article class="highlight" style="border-top:3px solid var(--blue)">
         <small>Primary author · New integration</small>
         <h3>IRONSCALES</h3>
-        <p>Authored the initial Elastic integration release for incident data, including ECS-aligned fields, sample events, dashboards and visualizations.</p>
-        <a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">Initial release #15982 ↗</a>
+        <p>Authored the initial incident integration, including ECS-aligned fields, sample events, dashboards and visualizations.</p>
+        <a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener noreferrer">Initial release #15982 ↗</a>
       </article>
       <article class="highlight" style="border-top:3px solid var(--pink)">
         <small>Primary author · New integration</small>
         <h3>IBM QRadar</h3>
-        <p>Authored the initial QRadar integration release, adding offense data collection, ECS field mapping, dashboards and visualizations.</p>
-        <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">Initial release #15302 ↗</a>
+        <p>Authored the initial QRadar integration with offense data collection, ECS field mapping, dashboards and visualizations.</p>
+        <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener noreferrer">Initial release #15302 ↗</a>
       </article>
       <article class="highlight">
-        <small>GTI · Kibana & Workflows</small>
+        <small>Kibana · Workflows</small>
         <h3>Google Threat Intelligence</h3>
-        <p>Connector support in Kibana and 12 workflows for threat enrichment, IOC relationships, URL scanning and alert write-back.</p>
-        <a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">Kibana PR #285533 ↗</a><br>
-        <a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">Workflows PR #60 ↗</a>
+        <p>Contributed the Kibana connector and 12 workflows for threat enrichment, IOC relationships, URL scanning and Security alert write-back.</p>
+        <a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener noreferrer">Kibana #285533 ↗</a><br>
+        <a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener noreferrer">Workflows #60 ↗</a>
       </article>
       <article class="highlight">
         <small>Elastic Integrations</small>
-        <h3>BeyondTrust EPM</h3>
-        <p>Audit and event data streams, ECS mapping, dashboards, and collection through the Management API or AWS S3/SQS.</p>
-        <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">Initial release PR #20010 ↗</a>
+        <h3>Flashpoint Threat Intelligence</h3>
+        <p>Contributed alert, indicator and vulnerability data streams, plus vendor-requested HTTP identification headers.</p>
+        <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener noreferrer">Alert #16714 ↗</a><br>
+        <a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener noreferrer">HTTP headers #20566 ↗</a>
       </article>
-      <article class="highlight">
-        <small>Elastic Integrations</small>
-        <h3>Flashpoint & QRadar</h3>
-        <p>Threat-intelligence data streams for Flashpoint and an IBM QRadar offense integration with ECS mapping and dashboards.</p>
-        <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">Flashpoint PR #16714 ↗</a><br>
-        <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">QRadar PR #15302 ↗</a>
+      <article class="highlight" style="border-top:3px solid var(--yellow)">
+        <small>Elasticsearch · Security</small>
+        <h3>IRONSCALES ILM authorization fix</h3>
+        <p>Fixed missing kibana_system privileges needed for the IRONSCALES incident index lifecycle deletion step, with maintenance-branch backports.</p>
+        <a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener noreferrer">Main fix #138094 ↗</a><br>
+        <a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener noreferrer">8.19 backport #138487 ↗</a>
       </article>
     </div>
   </section>
 
   <section id="contributions">
-    <div class="list-head">
-      <div><h2>All merged pull requests</h2><p class="section-intro" style="margin:4px 0 0">18 merged PRs · Direct links to GitHub.</p></div>
-      <input class="search" id="prSearch" type="search" placeholder="Search contributions…" aria-label="Search contributions">
-    </div>
-    <div class="pr-list" id="prList">
-      <article class="pr" data-search="google threat intelligence workflows gti enrichment alerts pagination url scan">
-        <span class="num">01</span><div><h3>Add Google Threat Intelligence workflows</h3><p>12 workflows for IP, domain, URL and file enrichment, alert write-back and relationship retrieval.</p><div class="repo">elastic/workflows</div></div><a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">PR #60 ↗</a>
-      </article>
-      <article class="pr" data-search="google threat intelligence connector kibana api key agent builder collections ioc">
-        <span class="num">02</span><div><h3>[Connector][GTI] Add Google Threat Intelligence connector</h3><p>Kibana connector with API-key authentication and threat collection, IOC, report and URL scan actions.</p><div class="repo">elastic/kibana</div></div><a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">PR #285533 ↗</a>
-      </article>
-      <article class="pr" data-search="flashpoint headers http requests integration platform version agent version">
-        <span class="num">03</span><div><h3>[ti_flashpoint] Set X-FP-* headers for HTTP requests</h3><p>Adds vendor-requested identification headers using package and Agent metadata with fallbacks.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener">PR #20566 ↗</a>
-      </article>
-      <article class="pr" data-search="google threat intelligence vulnerability data stream cvss epss kev">
-        <span class="num">04</span><div><h3>[ti_google_threat_intelligence] Add Vulnerability Data Stream</h3><p>Adds vulnerability data with CVSS, EPSS and exploitation context, plus related package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20465" target="_blank" rel="noopener">PR #20465 ↗</a>
-      </article>
-      <article class="pr" data-search="beyondtrust epm initial release audit event data stream aws s3 sqs management api ecs dashboards">
-        <span class="num">05</span><div><h3>[BeyondTrust EPM] Initial release</h3><p>Audit and event collection, Management API and AWS S3/SQS paths, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">PR #20010 ↗</a>
-      </article>
-      <article class="pr" data-search="beyondtrust audit config preserve duplicate custom fields access point arn aws s3 tests">
-        <span class="num">06</span><div><h3>[BeyondTrust EPM][Audit] Refine configuration and test layout</h3><p>Removes a duplicate-fields option, exposes S3 Access Point ARN and relocates test files.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">PR #19465 ↗</a>
-      </article>
-      <article class="pr" data-search="beyondtrust epm event data stream dashboards visualizations product schema">
-        <span class="num">07</span><div><h3>[BeyondTrust EPM][Event] Add Event data stream</h3><p>Adds Event collection, ECS field mapping, sample data and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18707" target="_blank" rel="noopener">PR #18707 ↗</a>
-      </article>
-      <article class="pr" data-search="beyondtrust epm audit data stream dashboards visualizations ecs">
-        <span class="num">08</span><div><h3>[BeyondTrust EPM][Audit] Add Audit data stream</h3><p>Adds audit collection, ECS mapping, sanitized samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18635" target="_blank" rel="noopener">PR #18635 ↗</a>
-      </article>
-      <article class="pr" data-search="forescout host data stream eyeextend connect host event">
-        <span class="num">09</span><div><h3>[Forescout][Host] Add Forescout Host data stream</h3><p>Adds host data ingestion through the eyeExtend Connect app alongside event collection.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18097" target="_blank" rel="noopener">PR #18097 ↗</a>
-      </article>
-      <article class="pr" data-search="flashpoint vulnerability data stream dashboard ecs">
-        <span class="num">10</span><div><h3>[ti_flashpoint][vulnerability] Add Vulnerability data stream</h3><p>Adds Flashpoint vulnerability collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16741" target="_blank" rel="noopener">PR #16741 ↗</a>
-      </article>
-      <article class="pr" data-search="flashpoint indicator data stream dashboard ecs">
-        <span class="num">11</span><div><h3>[ti_flashpoint][indicator] Add Indicator data stream</h3><p>Adds Flashpoint indicator collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16726" target="_blank" rel="noopener">PR #16726 ↗</a>
-      </article>
-      <article class="pr" data-search="flashpoint alert data stream dashboard">
-        <span class="num">12</span><div><h3>[ti_flashpoint][alert] Add Alert data stream</h3><p>Adds the initial Flashpoint alert data stream and package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">PR #16714 ↗</a>
-      </article>
-      <article class="pr" data-search="ironscales integration incident data stream dashboards visualizations api ecs">
-        <span class="num">13</span><div><h3>[IRONSCALES] Initial release of IRONSCALES integration</h3><p>Adds incident collection, ECS-aligned fields, samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">PR #15982 ↗</a>
-      </article>
-      <article class="pr" data-search="ibm qradar initial release offense data stream dashboards ecs siem">
-        <span class="num">14</span><div><h3>[ibm_qradar] Initial release of IBM QRadar</h3><p>Adds offense collection, rule-context enrichment, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">PR #15302 ↗</a>
-      </article>
-      <article class="pr" data-search="elasticsearch ironscales ilm policy delete kibana system permissions authorization">
-        <span class="num">15</span><div><h3>[IRONSCALES] Fix ILM policy delete-step permissions</h3><p>Adds required kibana_system privileges for IRONSCALES incident indices.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener">PR #138094 ↗</a>
-      </article>
-      <article class="pr" data-search="elasticsearch ironscales backport 8.19 ilm authorization">
-        <span class="num">16</span><div><h3>[8.19] Backport IRONSCALES ILM permission fix</h3><p>Backports the authorization fix to Elasticsearch 8.19.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener">PR #138487 ↗</a>
-      </article>
-      <article class="pr" data-search="elasticsearch ironscales backport 9.1 ilm authorization">
-        <span class="num">17</span><div><h3>[9.1] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.1.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener">PR #138486 ↗</a>
-      </article>
-      <article class="pr" data-search="elasticsearch ironscales backport 9.2 ilm authorization">
-        <span class="num">18</span><div><h3>[9.2] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.2.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener">PR #138485 ↗</a>
-      </article>
-    </div>
-    <p class="note">“Primary author” is used for the three initial integration-release PRs authored by akshraj-crest and carrying Elastic’s New Integration label: BeyondTrust EPM, IRONSCALES and IBM QRadar.</p>
-    <p class="note">The three IRONSCALES backports are separate merged PRs for maintenance branches, not separate feature implementations.</p>
+    <h2>All 18 merged pull requests</h2>
+    <p class="section-intro">Grouped by repository, with direct links to every merged contribution.</p>
+      <div class="repo-group">
+        <h3 class="repo-heading"><a href="https://github.com/elastic/integrations" target="_blank" rel="noopener noreferrer">elastic/integrations</a><span>12 PRs</span></h3>
+        <div class="pr-list">
+          <article class="pr" >
+                  <span class="num">03</span><div><h3>[ti_flashpoint] Set X-FP-* headers for HTTP requests</h3><p>Adds vendor-requested identification headers using package and Agent metadata with fallbacks.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener">PR #20566 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">04</span><div><h3>[ti_google_threat_intelligence] Add Vulnerability Data Stream</h3><p>Adds vulnerability data with CVSS, EPSS and exploitation context, plus related package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20465" target="_blank" rel="noopener">PR #20465 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">05</span><div><h3>[BeyondTrust EPM] Initial release</h3><p>Audit and event collection, Management API and AWS S3/SQS paths, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">PR #20010 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">06</span><div><h3>[BeyondTrust EPM][Audit] Refine configuration and test layout</h3><p>Removes a duplicate-fields option, exposes S3 Access Point ARN and relocates test files.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">PR #19465 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">07</span><div><h3>[BeyondTrust EPM][Event] Add Event data stream</h3><p>Adds Event collection, ECS field mapping, sample data and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18707" target="_blank" rel="noopener">PR #18707 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">08</span><div><h3>[BeyondTrust EPM][Audit] Add Audit data stream</h3><p>Adds audit collection, ECS mapping, sanitized samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18635" target="_blank" rel="noopener">PR #18635 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">09</span><div><h3>[Forescout][Host] Add Forescout Host data stream</h3><p>Adds host data ingestion through the eyeExtend Connect app alongside event collection.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/18097" target="_blank" rel="noopener">PR #18097 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">10</span><div><h3>[ti_flashpoint][vulnerability] Add Vulnerability data stream</h3><p>Adds Flashpoint vulnerability collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16741" target="_blank" rel="noopener">PR #16741 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">11</span><div><h3>[ti_flashpoint][indicator] Add Indicator data stream</h3><p>Adds Flashpoint indicator collection and dashboard support.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16726" target="_blank" rel="noopener">PR #16726 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">12</span><div><h3>[ti_flashpoint][alert] Add Alert data stream</h3><p>Adds the initial Flashpoint alert data stream and package assets.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener">PR #16714 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">13</span><div><h3>[IRONSCALES] Initial release of IRONSCALES integration</h3><p>Adds incident collection, ECS-aligned fields, samples and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">PR #15982 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">14</span><div><h3>[ibm_qradar] Initial release of IBM QRadar</h3><p>Adds offense collection, rule-context enrichment, ECS mapping and dashboards.</p><div class="repo">elastic/integrations</div></div><a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">PR #15302 ↗</a>
+                </article>
+        </div>
+      </div>
+      <div class="repo-group">
+        <h3 class="repo-heading"><a href="https://github.com/elastic/elasticsearch" target="_blank" rel="noopener noreferrer">elastic/elasticsearch</a><span>4 PRs</span></h3>
+        <div class="pr-list">
+          <article class="pr" >
+                  <span class="num">15</span><div><h3>[IRONSCALES] Fix ILM policy delete-step permissions</h3><p>Adds required kibana_system privileges for IRONSCALES incident indices.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener">PR #138094 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">16</span><div><h3>[8.19] Backport IRONSCALES ILM permission fix</h3><p>Backports the authorization fix to Elasticsearch 8.19.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener">PR #138487 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">17</span><div><h3>[9.1] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.1.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener">PR #138486 ↗</a>
+                </article>
+          <article class="pr" >
+                  <span class="num">18</span><div><h3>[9.2] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.2.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener">PR #138485 ↗</a>
+                </article>
+        </div>
+      </div>
+      <div class="repo-group">
+        <h3 class="repo-heading"><a href="https://github.com/elastic/kibana" target="_blank" rel="noopener noreferrer">elastic/kibana</a><span>1 PRs</span></h3>
+        <div class="pr-list">
+          <article class="pr" >
+                  <span class="num">02</span><div><h3>[Connector][GTI] Add Google Threat Intelligence connector</h3><p>Kibana connector with API-key authentication and threat collection, IOC, report and URL scan actions.</p><div class="repo">elastic/kibana</div></div><a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener">PR #285533 ↗</a>
+                </article>
+        </div>
+      </div>
+      <div class="repo-group">
+        <h3 class="repo-heading"><a href="https://github.com/elastic/workflows" target="_blank" rel="noopener noreferrer">elastic/workflows</a><span>1 PRs</span></h3>
+        <div class="pr-list">
+          <article class="pr" >
+                  <span class="num">01</span><div><h3>Add Google Threat Intelligence workflows</h3><p>12 workflows for IP, domain, URL and file enrichment, alert write-back and relationship retrieval.</p><div class="repo">elastic/workflows</div></div><a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener">PR #60 ↗</a>
+                </article>
+        </div>
+      </div>
   </section>
 
   <section id="contact">
@@ -262,7 +281,7 @@
   function setTheme(theme) {
     root.dataset.theme = theme;
     const dark = theme === 'dark';
-    toggle.textContent = dark ? '☀ Light' : '☾ Dark mode';
+    toggle.textContent = dark ? '☀ Light mode' : '☾ Dark mode';
     toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
     metaTheme.content = dark ? '#111a21' : '#ffffff';
   }
@@ -273,12 +292,6 @@
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
     try { localStorage.setItem('portfolio-theme', next); } catch (_) {}
-  });
-  const search = document.getElementById('prSearch');
-  const rows = [...document.querySelectorAll('#prList .pr')];
-  search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase();
-    rows.forEach(row => { row.hidden = !row.dataset.search.includes(q); });
   });
 </script>
 </body>
