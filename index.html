@@ -70,8 +70,8 @@
     section{padding:38px 0;border-bottom:1px solid var(--line)}
     h2{font-size:23px;letter-spacing:-.045em;margin:0 0 7px}
     .section-intro{color:var(--muted);font-size:13px;margin:0 0 18px}
-    .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .highlight{border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--surface);box-shadow:var(--shadow)}
+    .highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+    .highlight{display:flex;flex-direction:column;align-items:flex-start;min-width:0;border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--surface);box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}\n    .highlight:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 28px rgba(0,169,157,.13)}\n    .highlight-links{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:auto;padding-top:4px}\n    .highlight-links a{font-size:10px}
     .highlight small{font:500 10px 'DM Mono',monospace;color:var(--accent);text-transform:uppercase}
     .highlight h3{font-size:15px;line-height:1.4;margin:8px 0}
     .highlight p{font-size:12px;color:var(--muted);margin:0 0 12px}
@@ -97,18 +97,6 @@
     .primary:hover{background:var(--yellow);color:var(--button-hover-text)}
     .secondary:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
     a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-    .elasticsearch-feature{margin-top:22px;padding:20px;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:8px;background:var(--surface);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:18px;align-items:center;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-    .elasticsearch-feature:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow)}
-    .elasticsearch-heading small{font:500 10px 'DM Mono',monospace;color:var(--accent);text-transform:uppercase}
-    .elasticsearch-heading h3{font-size:17px;line-height:1.4;margin:7px 0}
-    .elasticsearch-heading p{font-size:12px;color:var(--muted);margin:0}
-    .elasticsearch-heading code{font:11px 'DM Mono',monospace;color:var(--text);background:var(--surface2);padding:2px 4px;border-radius:3px}
-    .elasticsearch-links{display:grid;gap:8px}
-    .elasticsearch-links a{font-size:11px;font-weight:800;text-decoration:none;color:var(--link)}
-    .elasticsearch-links a:hover{color:var(--pink);text-decoration:underline}
-    .theme-toggle{transition:background .18s ease,border-color .18s ease,color .18s ease}
-    .theme-toggle:hover{background:var(--accent-soft);color:var(--accent)}
-    nav a{transition:color .18s ease}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
     .num{font:11px 'DM Mono',monospace;color:var(--muted);padding-top:2px}
     .pr h3{font-size:12px;line-height:1.5;margin:0 0 3px}
@@ -196,19 +184,17 @@
         <a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener noreferrer">HTTP headers #20566 ↗</a>
       </article>
     </div>
-    <div class="elasticsearch-feature">
-      <div class="elasticsearch-heading">
-        <small>Elasticsearch · Security · Core engineering</small>
+      <article class="highlight">
+        <small>Elasticsearch · Security</small>
         <h3>IRONSCALES ILM authorization fix</h3>
-        <p>Fixed missing <code>kibana_system</code> privileges required for the IRONSCALES incident index lifecycle deletion step. The fix was also backported to supported maintenance branches.</p>
-      </div>
-      <div class="elasticsearch-links">
-        <a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener noreferrer">Main fix #138094 ↗</a>
-        <a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener noreferrer">8.19 backport #138487 ↗</a>
-        <a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener noreferrer">9.1 backport #138486 ↗</a>
-        <a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener noreferrer">9.2 backport #138485 ↗</a>
-      </div>
-    </div>
+        <p>Fixed missing <code>kibana_system</code> privileges for incident index lifecycle deletion, with maintenance-branch backports.</p>
+        <div class="highlight-links">
+          <a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener noreferrer">Main fix #138094 ↗</a>
+          <a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener noreferrer">8.19 #138487 ↗</a>
+          <a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener noreferrer">9.1 #138486 ↗</a>
+          <a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener noreferrer">9.2 #138485 ↗</a>
+        </div>
+      </article>
   </section>
 
   <section id="contributions">
