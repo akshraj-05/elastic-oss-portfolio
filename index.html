@@ -70,6 +70,11 @@
     .section-intro{color:var(--muted);font-size:13px;margin:0 0 18px}
     .highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
     .highlight{display:flex;flex-direction:column;align-items:flex-start;min-width:0;border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--surface);box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}\n    .highlight:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 28px rgba(0,169,157,.13)}\n    .highlight-links{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:auto;padding-top:4px}\n    .highlight-links a{font-size:10px}
+
+    .contribution-label{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:var(--surface2);color:var(--accent);font:600 9px 'DM Mono',monospace;letter-spacing:.02em}
+    .contribution-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:13px}
+    .contribution-tags span{display:inline-flex;border:1px solid var(--line);border-radius:4px;padding:3px 7px;color:var(--muted);font:9px 'DM Mono',monospace;background:var(--bg)}
+    .highlight p{margin-bottom:10px}
     .highlight small{font:500 10px 'DM Mono',monospace;color:var(--accent);text-transform:uppercase}
     .highlight h3{font-size:15px;line-height:1.4;margin:8px 0}
     .highlight p{font-size:12px;color:var(--muted);margin:0 0 12px}
@@ -149,39 +154,44 @@
     <p class="section-intro">From building integrations to fixing core Elasticsearch issues — contributions across the Elastic ecosystem.</p>
     <div class="highlights">
       <article class="highlight" style="border-top:3px solid var(--teal)">
-        <small>Primary author · New integration</small>
+        <span class="contribution-label">Primary author</span>
         <h3>BeyondTrust EPM</h3>
         <p>Authored the initial integration release with Audit and Event data streams, ECS field mapping, dashboards and visualizations.</p>
         <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener noreferrer">Initial release #20010 ↗</a>
+        <div class="contribution-tags"><span>Audit</span><span>Event data streams</span><span>ECS</span><span>Dashboards</span></div>
       </article>
       <article class="highlight" style="border-top:3px solid var(--blue)">
-        <small>Primary author · New integration</small>
+        <span class="contribution-label">Primary author</span>
         <h3>IRONSCALES</h3>
         <p>Authored the initial incident integration, including ECS-aligned fields, sample events, dashboards and visualizations.</p>
         <a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener noreferrer">Initial release #15982 ↗</a>
+        <div class="contribution-tags"><span>Incident data</span><span>ECS</span><span>Data streams</span><span>Dashboards</span></div>
       </article>
       <article class="highlight" style="border-top:3px solid var(--pink)">
-        <small>Primary author · New integration</small>
+        <span class="contribution-label">Primary author</span>
         <h3>IBM QRadar</h3>
         <p>Authored the initial QRadar integration with offense data collection, ECS field mapping, dashboards and visualizations.</p>
         <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener noreferrer">Initial release #15302 ↗</a>
+        <div class="contribution-tags"><span>Offense data</span><span>ECS</span><span>Data streams</span><span>Dashboards</span></div>
       </article>
       <article class="highlight">
-        <small>Kibana · Workflows</small>
+        <span class="contribution-label">Connector + 12 workflows</span>
         <h3>Google Threat Intelligence</h3>
         <p>Contributed the Kibana connector and 12 workflows for threat enrichment, IOC relationships and URL scanning.</p>
         <a href="https://github.com/elastic/kibana/pull/285533" target="_blank" rel="noopener noreferrer">Kibana #285533 ↗</a><br>
         <a href="https://github.com/elastic/workflows/pull/60" target="_blank" rel="noopener noreferrer">Workflows #60 ↗</a>
+        <div class="contribution-tags"><span>Kibana</span><span>Workflows</span><span>Threat intelligence</span><span>IOC enrichment</span></div>
       </article>
       <article class="highlight">
-        <small>Elastic Integrations</small>
+        <span class="contribution-label">Integration enhancements</span>
         <h3>Flashpoint Threat Intelligence</h3>
         <p>Contributed alert, indicator and vulnerability data streams, plus vendor-requested HTTP identification headers.</p>
         <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener noreferrer">Alert #16714 ↗</a><br>
         <a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener noreferrer">HTTP headers #20566 ↗</a>
+        <div class="contribution-tags"><span>Threat intelligence</span><span>Data streams</span><span>HTTP API</span></div>
       </article>
       <article class="highlight">
-        <small>Elasticsearch · Security</small>
+        <span class="contribution-label">Core engineering</span>
         <h3>IRONSCALES ILM authorization fix</h3>
         <p>Fixed missing <code>kibana_system</code> privileges for incident index lifecycle deletion, with maintenance-branch backports.</p>
         <div class="highlight-links">
@@ -190,6 +200,7 @@
           <a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener noreferrer">9.1 #138486 ↗</a>
           <a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener noreferrer">9.2 #138485 ↗</a>
         </div>
+        <div class="contribution-tags"><span>Elasticsearch</span><span>Security</span><span>ILM</span><span>Authorization</span></div>
       </article>
     </div>
   </section>
