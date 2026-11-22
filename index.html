@@ -110,13 +110,32 @@
   <div class="stats" aria-label="Contribution summary">
     <div class="stat"><strong>18</strong><span>Merged pull requests</span></div>
     <div class="stat"><strong>4</strong><span>Elastic repositories</span></div>
-    <div class="stat"><strong>6</strong><span>Integration initiatives</span></div>
+    <div class="stat"><strong>3</strong><span>Primary-authored integration releases</span></div>
   </div>
 
   <section id="highlights">
     <h2>Selected contributions</h2>
-    <p class="section-intro">A few substantial examples from the merged work.</p>
+    <p class="section-intro">Primary-authored integrations are identified separately from other substantial contributions.</p>
     <div class="highlights">
+      <article class="highlight" style="border-top:3px solid var(--teal)">
+        <small>Primary author · New integration</small>
+        <h3>BeyondTrust EPM</h3>
+        <p>Authored the initial integration release, including Audit and Event data streams, ECS field mapping, dashboards and visualizations. Follow-up PRs refined configuration and test layout.</p>
+        <a href="https://github.com/elastic/integrations/pull/20010" target="_blank" rel="noopener">Initial release #20010 ↗</a>
+        <span aria-hidden="true"> · </span><a href="https://github.com/elastic/integrations/pull/19465" target="_blank" rel="noopener">Follow-up #19465 ↗</a>
+      </article>
+      <article class="highlight" style="border-top:3px solid var(--blue)">
+        <small>Primary author · New integration</small>
+        <h3>IRONSCALES</h3>
+        <p>Authored the initial Elastic integration release for incident data, including ECS-aligned fields, sample events, dashboards and visualizations.</p>
+        <a href="https://github.com/elastic/integrations/pull/15982" target="_blank" rel="noopener">Initial release #15982 ↗</a>
+      </article>
+      <article class="highlight" style="border-top:3px solid var(--pink)">
+        <small>Primary author · New integration</small>
+        <h3>IBM QRadar</h3>
+        <p>Authored the initial QRadar integration release, adding offense data collection, ECS field mapping, dashboards and visualizations.</p>
+        <a href="https://github.com/elastic/integrations/pull/15302" target="_blank" rel="noopener">Initial release #15302 ↗</a>
+      </article>
       <article class="highlight">
         <small>GTI · Kibana & Workflows</small>
         <h3>Google Threat Intelligence</h3>
@@ -201,6 +220,7 @@
         <span class="num">18</span><div><h3>[9.2] Backport IRONSCALES ILM permission fix</h3><p>Backports the same authorization fix to Elasticsearch 9.2.</p><div class="repo">elastic/elasticsearch</div></div><a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener">PR #138485 ↗</a>
       </article>
     </div>
+    <p class="note">“Primary author” is used for the three initial integration-release PRs authored by akshraj-crest and carrying Elastic’s New Integration label: BeyondTrust EPM, IRONSCALES and IBM QRadar.</p>
     <p class="note">The three IRONSCALES backports are separate merged PRs for maintenance branches, not separate feature implementations.</p>
   </section>
 
