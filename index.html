@@ -50,8 +50,13 @@
     .primary{background:var(--accent);color:white}
     .secondary{border:1px solid var(--line);color:var(--text);background:var(--surface)}
     .stats{display:flex;gap:28px;flex-wrap:wrap;padding:20px 0 34px;border-bottom:1px solid var(--line)}
-    .stat strong{font-size:24px;letter-spacing:-.05em;display:block}
-    .stat span{font-size:11px;color:var(--muted)}
+    .stat{position:relative;min-width:135px;padding:10px 12px;border:1px solid transparent;border-radius:9px;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
+    .stat strong{font-size:24px;letter-spacing:-.05em;display:block;transition:color .22s ease,transform .22s ease}
+    .stat span{font-size:11px;color:var(--muted);transition:color .22s ease}
+    .stat:hover{transform:translateY(-5px);border-color:var(--accent);background:var(--surface);box-shadow:0 10px 24px rgba(0,169,157,.12)}
+    .stat:hover strong{color:var(--accent);transform:scale(1.08);transform-origin:left center}
+    .stat::after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:2px;background:linear-gradient(90deg,#fec514,#00bfb3,#1ba9f5,#f04e98);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+    .stat:hover::after{transform:scaleX(1)}
     section{padding:38px 0;border-bottom:1px solid var(--line)}
     h2{font-size:23px;letter-spacing:-.045em;margin:0 0 7px}
     .section-intro{color:var(--muted);font-size:13px;margin:0 0 18px}
