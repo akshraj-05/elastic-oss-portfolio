@@ -14,12 +14,16 @@
     :root {
       color-scheme: light;
       --bg:#fff; --surface:#f7f9fa; --surface2:#eef2f4; --text:#18242d;
+      --teal:#00a99d; --blue:#1ba9f5; --pink:#e84b91; --yellow:#fec514;
+      --button-text:#ffffff; --button-hover-text:#18242d;
       --muted:#5c6b75; --line:#dfe5e8; --accent:#087e76; --accent-soft:#e5f5f2;
       --link:#087e76; --shadow:0 8px 28px rgba(25,45,55,.06); --max:980px;
     }
     html[data-theme="dark"] {
       color-scheme:dark;
       --bg:#111a21; --surface:#19252e; --surface2:#22313b; --text:#edf3f5;
+      --teal:#00bfb3; --blue:#1ba9f5; --pink:#f04e98; --yellow:#fec514;
+      --button-text:#102027; --button-hover-text:#18242d;
       --muted:#a7b5bd; --line:#33434d; --accent:#53c9b7; --accent-soft:#203a39;
       --link:#65d5c4; --shadow:0 8px 28px rgba(0,0,0,.16);
     }
@@ -53,7 +57,7 @@
     .repo-credit a{color:var(--link);text-decoration:none;font-weight:800;transition:color .18s ease}
     .repo-credit a:hover{color:#e84b91;text-decoration:underline}
     .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:6px;font-size:12px;font-weight:800;text-decoration:none}
-    .primary{background:var(--accent);color:white}
+    .primary{background:var(--accent);color:var(--button-text)}
     .secondary{border:1px solid var(--line);color:var(--text);background:var(--surface)}
     .stats{display:flex;gap:28px;flex-wrap:wrap;padding:20px 0 34px;border-bottom:1px solid var(--line)}
     .stat{position:relative;min-width:135px;padding:10px 12px;border:1px solid transparent;border-radius:9px;transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
@@ -80,8 +84,7 @@
     .repo-group .pr-list{display:grid;gap:7px}
     .repo-group .pr{transition:transform .18s ease,border-color .18s ease,background .18s ease}
     .repo-group .pr:hover{transform:translateX(3px);border-color:var(--accent);background:var(--surface)}
-    .note{display:none}
-        .pr-list{display:grid;gap:7px}
+    .pr-list{display:grid;gap:7px}
     .pr{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:7px;background:var(--bg)}
     .pr{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
     .pr:hover{background:var(--surface);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
@@ -91,10 +94,20 @@
     .highlight a:hover{color:#e84b91;text-decoration:underline}
     .btn{transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease}
     .btn:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(0,169,157,.18)}
-    .primary:hover{background:#e84b91;color:#fff}
+    .primary:hover{background:var(--yellow);color:var(--button-hover-text)}
     .secondary:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .elasticsearch-feature{margin-top:22px;padding:20px;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:8px;background:var(--surface);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:18px;align-items:center;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+    .elasticsearch-feature:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .elasticsearch-heading small{font:500 10px 'DM Mono',monospace;color:var(--accent);text-transform:uppercase}
+    .elasticsearch-heading h3{font-size:17px;line-height:1.4;margin:7px 0}
+    .elasticsearch-heading p{font-size:12px;color:var(--muted);margin:0}
+    .elasticsearch-heading code{font:11px 'DM Mono',monospace;color:var(--text);background:var(--surface2);padding:2px 4px;border-radius:3px}
+    .elasticsearch-links{display:grid;gap:8px}
+    .elasticsearch-links a{font-size:11px;font-weight:800;text-decoration:none;color:var(--link)}
+    .elasticsearch-links a:hover{color:var(--pink);text-decoration:underline}
     .theme-toggle{transition:background .18s ease,border-color .18s ease,color .18s ease}
-    .theme-toggle:hover{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+    .theme-toggle:hover{background:var(--accent-soft);color:var(--accent)}
     nav a{transition:color .18s ease}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
     .num{font:11px 'DM Mono',monospace;color:var(--muted);padding-top:2px}
@@ -103,7 +116,6 @@
     .repo{font:10px 'DM Mono',monospace;color:var(--muted);margin-top:5px}
     .pr>a{font-size:11px;font-weight:800;text-decoration:none;white-space:nowrap}
     .pr[hidden]{display:none}
-    .note{font-size:10px;color:var(--muted);margin:10px 0 0}
     .contact{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
     .contact p{font-size:12px;color:var(--muted);margin:0}
     footer{padding:20px 0 28px;color:var(--muted);font-size:10px}
@@ -111,7 +123,8 @@
       .wrap{width:calc(100% - 30px)}.nav{height:auto;min-height:62px}
       nav{display:none}.hero{padding:48px 0 25px}
       .highlights{grid-template-columns:1fr}
-      .search{width:100%}.pr{grid-template-columns:25px minmax(0,1fr);gap:8px}
+      .elasticsearch-feature{grid-template-columns:1fr;gap:14px}
+      .pr{grid-template-columns:25px minmax(0,1fr);gap:8px}
       .pr>a{grid-column:2}.stats{gap:18px}
     }
   </style>
@@ -182,13 +195,19 @@
         <a href="https://github.com/elastic/integrations/pull/16714" target="_blank" rel="noopener noreferrer">Alert #16714 ↗</a><br>
         <a href="https://github.com/elastic/integrations/pull/20566" target="_blank" rel="noopener noreferrer">HTTP headers #20566 ↗</a>
       </article>
-      <article class="highlight" style="border-top:3px solid var(--yellow)">
-        <small>Elasticsearch · Security</small>
+    </div>
+    <div class="elasticsearch-feature">
+      <div class="elasticsearch-heading">
+        <small>Elasticsearch · Security · Core engineering</small>
         <h3>IRONSCALES ILM authorization fix</h3>
-        <p>Fixed missing kibana_system privileges needed for the IRONSCALES incident index lifecycle deletion step, with maintenance-branch backports.</p>
-        <a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener noreferrer">Main fix #138094 ↗</a><br>
+        <p>Fixed missing <code>kibana_system</code> privileges required for the IRONSCALES incident index lifecycle deletion step. The fix was also backported to supported maintenance branches.</p>
+      </div>
+      <div class="elasticsearch-links">
+        <a href="https://github.com/elastic/elasticsearch/pull/138094" target="_blank" rel="noopener noreferrer">Main fix #138094 ↗</a>
         <a href="https://github.com/elastic/elasticsearch/pull/138487" target="_blank" rel="noopener noreferrer">8.19 backport #138487 ↗</a>
-      </article>
+        <a href="https://github.com/elastic/elasticsearch/pull/138486" target="_blank" rel="noopener noreferrer">9.1 backport #138486 ↗</a>
+        <a href="https://github.com/elastic/elasticsearch/pull/138485" target="_blank" rel="noopener noreferrer">9.2 backport #138485 ↗</a>
+      </div>
     </div>
   </section>
 
